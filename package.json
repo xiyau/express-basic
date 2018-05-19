@@ -6,13 +6,24 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "body-parser": "*",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
-    "nodemailer": "*"
+    "nodemailer": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "connect-flash": "*",
+    "express-validator": "*",
+    "express-session": "*",
+    "express-messages": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-http": "*",
+    "multer": "*"
   },
   "devDependencies": {
     "nodemon": "^1.17.4"
