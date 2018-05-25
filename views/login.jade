@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h1 Login
+	p Please Login to Continue
+	form(method='post', action='/users/login',enctype='urlencoded')
+		.form-group
+			label Username
+			input.form-control(type='text', name='username',placeholder='Enter  UserName')
+		.form-group
+			label Passowrd
+			input.form-control(type='password', name='password',placeholder='Enter Your Password')
+		
+		button.btn.btn-default(type='submit') Login

@@ -2,34 +2,39 @@ doctype html
 html
 	head
 		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-		link(href="stylesheets/bootstrap.css" rel="stylesheet")
-		link(href="stylesheets/style.css" rel="stylesheet")
+		link(href="/stylesheets/bootstrap.css" rel="stylesheet")
+		link(href="/stylesheets/style.css" rel="stylesheet")
 
 	body
 		.container
 			nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
-				a.navbar-brand(href="#") Navbar
+				a.navbar-brand(href="#") HACKODE
 				button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
 					span.navbar-toggler-icon
 				#navbarNav.collapse.navbar-collapse
-					ul.navbar-nav
+					ul.nav.navbar-nav
 						li.nav-item(class=(title === 'Home' ? 'active' : ''))
 							a.nav-link(href='/') Home
-						li.nav-item(class=(title === 'About' ? 'active' : ''))
+						li.nav-item(class=(title === 'about' ? 'active' : ''))
 							a.nav-link(href='/about') About
-						li.nav-item(class=(title === 'Contact' ? 'active' : ''))
+						li.nav-item(class=(title === 'test' ? 'active' : ''))
+							a.nav-link(href='/test') Test
+						li.nav-item(class=(title === 'contact' ? 'active' : ''))
 							a.nav-link(href='/contact') Contact
-
-							
-				
-	
-
-		block content
+						li.nav-item(class=(title === 'members' ? 'active' : ''))
+							a.nav-link(href='/users/members') Members
+						li.nav-item(class=(title === 'register' ? 'active' : ''))
+							a.nav-link(href='/users/register') Register
+						li.nav-item(class=(title === 'login' ? 'active' : ''))
+							a.nav-link(href='/users/login') Log In
+					ul.nav.navbar-nav.navbar-right
+						li
+							a(href='/users/logout') Logout
+			if(error_msg.length > 0)
+				.alert.alert-danger=error_msg[0]
+		.container
+			block content
 		footer
 			p &copy; 2018, All Rights Under Reserved
 
-	script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
-	script.
-		window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\\/script>')
-	script(src="../../../../assets/js/vendor/popper.min.js")
-	script(src="JavaScripts/bootstrap.js")
+	script(src="/JavaScripts/bootstrap.js")
