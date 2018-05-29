@@ -175,7 +175,15 @@ router.post('/login',
     function(req, res) {
 		req.flash('error_msg', 'you are logged in');
         res.redirect('/users/members');
-    });
+	});
+	
+
+router.get('/logout',function(req,res){
+	req.logout();
+	req.flash('error_msg', 'you have been logged out');
+
+	res.redirect('/users/login');
+});
 // passport.deserializeUser(function (id, done) {
 // 	User.getUserById(id, function (err, user) {
 // 		done(err, user);
@@ -237,9 +245,19 @@ router.get('/login', function(req, res, next) {
   res.render('login', {'title': 'login'});
 });
 
-router.get('/members', function(req, res, next) {
+router.get('/members',ensureAuthenticated, function(req, res, next) {
   res.render('members', {'title': 'members'});
 });
+
+function ensureAuthenticated(req,res,next){
+	if(req.isAuthenticated()){
+		return next();
+
+	}else{
+		res.redirect('/users/login');
+	}
+	
+};
 
 
 module.exports = router;

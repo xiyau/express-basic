@@ -23,13 +23,15 @@ html
 							a.nav-link(href='/contact') Contact
 						li.nav-item(class=(title === 'members' ? 'active' : ''))
 							a.nav-link(href='/users/members') Members
-						li.nav-item(class=(title === 'register' ? 'active' : ''))
-							a.nav-link(href='/users/register') Register
-						li.nav-item(class=(title === 'login' ? 'active' : ''))
-							a.nav-link(href='/users/login') Log In
-					ul.nav.navbar-nav.navbar-right
-						li
-							a(href='/users/logout') Logout
+						if !user
+							li.nav-item(class=(title === 'register' ? 'active' : ''))
+								a.nav-link(href='/users/register') Register
+							li.nav-item(class=(title === 'login' ? 'active' : ''))
+								a.nav-link(href='/users/login') Log In
+						if user
+							ul.nav.navbar-nav.navbar-right
+								li
+									a(href='/users/logout') Logout
 			if(error_msg.length > 0)
 				.alert.alert-danger=error_msg[0]
 		.container

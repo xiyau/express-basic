@@ -74,6 +74,12 @@ app.use(function(req,res,next){
 // Handle fileUploads
 var uploads = multer({dest:'./uploads'});
 
+app.get('*',function(req,res,next){
+  res.locals.user = req.user || null;
+  next();
+});
+
+
 app.use('/', routes);
 app.use('/about', about);
 app.use('/contact', contact);
